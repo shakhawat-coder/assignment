@@ -10,7 +10,7 @@ function formatValue(value: string | number | boolean): string | number | boolea
 }
 
 
-function getLength(value: string | any[]): number {
+function getLength(value: string | unknown[]): number {
     if (typeof value === "string") {
         return value.length;
     }
@@ -68,14 +68,14 @@ function getUniqueValues(
     array2: (number | string)[]
 ): (number | string)[] {
 
-    const uniqeValue: (number | string)[] = [];
+    const uniqueValue: (number | string)[] = [];
     function addUnique(value: number | string) {
-        for (let i = 0; i < uniqeValue.length; i++) {
-            if (uniqeValue[i] === value) {
+        for (let i = 0; i < uniqueValue.length; i++) {
+            if (uniqueValue[i] === value) {
                 return;
             }
         }
-        uniqeValue[uniqeValue.length] = value;
+        uniqueValue[uniqueValue.length] = value;
     }
 
     for (let i = 0; i < array1.length; i++) {
@@ -86,7 +86,7 @@ function getUniqueValues(
         addUnique(array2[i] as number | string);
     }
 
-    return uniqeValue;
+    return uniqueValue;
 }
 
 
